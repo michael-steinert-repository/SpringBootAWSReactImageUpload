@@ -6,9 +6,9 @@ import java.util.UUID;
 
 public class UserProfile {
 
-    private UUID userProfileId;
-    private String username;
-    private String userProfileUmageLink; //s3-key-link
+    private final UUID userProfileId;
+    private final String username;
+    private String userProfileUmageLink; //s3-key-link not final because not real db
 
     public UserProfile(UUID userProfileId, String username, String userProfileUmageLink) {
         this.userProfileId = userProfileId;
@@ -20,23 +20,15 @@ public class UserProfile {
         return userProfileId;
     }
 
-    public void setUserProfileId(UUID userProfileId) {
-        this.userProfileId = userProfileId;
-    }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public Optional<String> getUserProfileUmageLink() {
         return Optional.ofNullable(userProfileUmageLink);
     }
 
-    public void setUserProfileUmageLink(String userProfileUmageLink) {
+    public void setUserProfileImageLink(String userProfileUmageLink) {
         this.userProfileUmageLink = userProfileUmageLink;
     }
 
