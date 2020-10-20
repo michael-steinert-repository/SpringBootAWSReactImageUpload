@@ -33,7 +33,7 @@ public class UserProfileService {
                 BucketName.PROFILE_IMAGE.getBucketName(),
                 user.getUserProfileId());
 
-        return user.getUserProfileUmageLink()
+        return user.getUserProfileImageLink()
                 .map(key -> fileStore.download(path, key))
                 .orElse(new byte[0]);
     }

@@ -28,14 +28,15 @@ public class FileStore {
         ObjectMetadata metadata = new ObjectMetadata();
         optionalMetadata.ifPresent(map -> {
             if(!map.isEmpty()) {
+                //map.forEach((key, value) -> metadata.addUserMetadata(key, value));
+                //Method References:
                 map.forEach(metadata::addUserMetadata);
-                //alternativ: map.forEach((key, value) -> metadata.addUserMetadata(key, value));
             }
         });
         try{
             s3.putObject(path, fileName, inputStream, metadata);
         } catch(AmazonServiceException e) {
-            throw new IllegalStateException("Failed to store file to s3 :-(", e);
+            throw new IllegalStateException("Failed to store file to s3 Bucket", e);
         }
     }
 
@@ -44,7 +45,7 @@ public class FileStore {
             S3Object object = s3.getObject(path, key);
             return IOUtils.toByteArray(object.getObjectContent());
         } catch(AmazonServiceException | IOException e) {
-            throw new IllegalStateException("Failed to download profile image from s3", e);
+            throw new IllegalStateException("Failed to download profile image from s3 Bucket", e);
         }
     }
 }

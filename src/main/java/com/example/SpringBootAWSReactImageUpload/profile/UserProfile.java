@@ -8,12 +8,12 @@ public class UserProfile {
 
     private final UUID userProfileId;
     private final String username;
-    private String userProfileUmageLink; //s3-key-link not final because not real db
+    private String userProfileImageLink; //s3 Bucket Key
 
-    public UserProfile(UUID userProfileId, String username, String userProfileUmageLink) {
+    public UserProfile(UUID userProfileId, String username, String userProfileImageLink) {
         this.userProfileId = userProfileId;
         this.username = username;
-        this.userProfileUmageLink = userProfileUmageLink;
+        this.userProfileImageLink = userProfileImageLink;
     }
 
     public UUID getUserProfileId() {
@@ -24,12 +24,12 @@ public class UserProfile {
         return username;
     }
 
-    public Optional<String> getUserProfileUmageLink() {
-        return Optional.ofNullable(userProfileUmageLink);
+    public Optional<String> getUserProfileImageLink() {
+        return Optional.ofNullable(userProfileImageLink);
     }
 
-    public void setUserProfileImageLink(String userProfileUmageLink) {
-        this.userProfileUmageLink = userProfileUmageLink;
+    public void setUserProfileImageLink(String userProfileImageLink) {
+        this.userProfileImageLink = userProfileImageLink;
     }
 
     @Override
@@ -39,11 +39,11 @@ public class UserProfile {
         UserProfile that = (UserProfile) o;
         return Objects.equals(userProfileId, that.userProfileId) &&
                 Objects.equals(username, that.username) &&
-                Objects.equals(userProfileUmageLink, that.userProfileUmageLink);
+                Objects.equals(userProfileImageLink, that.userProfileImageLink);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userProfileId, username, userProfileUmageLink);
+        return Objects.hash(userProfileId, username, userProfileImageLink);
     }
 }

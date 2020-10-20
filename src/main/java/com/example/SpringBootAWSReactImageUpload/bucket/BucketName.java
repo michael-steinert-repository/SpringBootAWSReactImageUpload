@@ -2,7 +2,7 @@ package com.example.SpringBootAWSReactImageUpload.bucket;
 
 public enum BucketName {
 
-    PROFILE_IMAGE("michael-steinert-image-upload");
+    PROFILE_IMAGE("aws-bucket-image-upload-123");
 
     private final String bucketName;
 
